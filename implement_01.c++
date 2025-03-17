@@ -1,40 +1,44 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main() {
     int n;  
+    string str;
     char input;
 
     cin >> n;
-    int start_x=1, start_y=1;
+     
+    int start_i=1, start_j=1;
 
-    while(1){
-        cin >> input;
-        if(input == EOF) break;
+    cin.ignore();
+    getline(cin, str);  // 한 줄 전체를 입력 받음
+
+    for (char input : str) {
 
         switch(input)
         { 
             case 'L' : 
-                if(start_x > 1)
-                    start_x --;
+                if(start_j > 1)
+                    start_j --;
                 break;
             case 'U' :
-                if(start_x > 1)
-                    start_y --;
+                if(start_i > 1)
+                    start_i --;
                 break;
             case 'R' :
-                if(start_x < n)
-                    start_x++;
+                if(start_i < n)
+                    start_j++;
                 break;
             case 'D' : 
-                if(start_y < n)
-                    start_y++;
+                if(start_i < n)
+                    start_i++;
                 break; 
         }
 
     }
     // 입력받은 값 출력하기
-    cout << start_x << " " << start_y << endl;
+    cout << start_i << " " << start_j << endl;
 
     return 0;
 }
